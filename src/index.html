@@ -2,25 +2,144 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecorreStgo</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
 
-  <base href="/" />
-
-  <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
-
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  </style>
 </head>
 
 <body>
-  <app-root></app-root>
+  <ion-app>
+    <ion-tabs>
+      <ion-tab tab="schedule">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>RecorreStgo</ion-title>
+          </ion-toolbar>
+        </ion-header>
+            <ion-content fullscreen="true">
+              <ion-header collapse="condense">
+                <ion-toolbar>
+                  <ion-title size="large">RecorreStgo</ion-title>
+                </ion-toolbar>
+                <ion-toolbar>
+                  <ion-searchbar></ion-searchbar>
+                </ion-toolbar>
+              </ion-header>
+              <ion-toolbar>
+                <ion-subtitle style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 20px">Bienvenido a "RecorreStgo", la app de turismo de la Región Metropolitana</ion-subtitle>
+              </ion-toolbar>
+    
+              <ion-list>
+                <ion-item *ngFor="let item of items">
+                  <ion-icon name="bicycle-outline"></ion-icon>
+                  <ion-label>  Cerro San Cristobal</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="walk-outline"></ion-icon>
+                  <ion-label>Parque forestal</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <ion-label>Cajon del maipo</ion-label>
+                </ion-item>
+              </ion-list>
+    
+              <ion-toolbar style="animation: linear;">
+                <img src="https://interrailero.com/wp-content/uploads/2019/08/que-hacer-en-santiago-de-chile-1280x400.jpg" alt="">
+              </ion-toolbar>
+    
+            </ion-content>
+
+      </ion-tab>
+      <ion-tab tab="speakers">
+        <ion-header translucent>
+          <ion-toolbar>
+            <ion-title>Destinos</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content fullscreen class="ion-padding">
+          <h1>Destinos</h1>
+          <ion-card>
+            <img src="https://telefericosantiago.cl/website/wp-content/uploads/2018/03/virgen-768x512.jpg" alt="">
+            <ion-card-header>
+              <ion-card-subtitle>Santiago</ion-card-subtitle>
+              <ion-card-title>Cerro San Cristobal</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              El cerro San Cristóbal está ubicado en Santiago, la capital de Chile. Con una altitud de 880 m s. n. m. y una prominencia de 280 m, es el tercer punto más alto de la ciudad, superado por el cerro Manquehue y el cerro Renca
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+            <img src="https://i4.visitchile.com/img/GalleryContent/112839/slider/Parque_Forestal.jpg" alt="">
+            <ion-card-header>
+              <ion-card-subtitle>Santiago</ion-card-subtitle>
+              <ion-card-title>Parque forestal</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              El Parque Forestal "Rubén Darío" es un parque urbano tradicional de la comuna y ciudad de Santiago, la capital de Chile. Está ubicado en el sector norte del Barrio Lastarria. Aquí se realizan actividades culturales y recreativas, siendo uno de los principales puntos referenciales de la ciudad
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+            <img src="https://www.gochile.cl/fotos/full/2966-cajon-del-maipo-gandalf-blanco@2x.jpg" alt="">
+            <ion-card-header>
+              <ion-card-subtitle>Santiago</ion-card-subtitle>
+              <ion-card-title>Cajon del Maipo</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              El Cajón del Maipo es un cañón andino ubicado en la zona suroriental de la Región Metropolitana, Chile. Corresponde a la alta cuenca del río Maipo, donde es encajonado por cerros, farellones y macizos
+            </ion-card-content>
+          </ion-card>
+
+        </ion-content>
+      </ion-tab>
+
+      <ion-tab tab="about" style="background-color: white;">
+        <ion-header translucent>
+          <ion-toolbar>
+            <ion-button color="primary">Ayudaa</ion-button>
+          </ion-toolbar>
+        </ion-header>
+      </ion-tab>
+
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="schedule">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="speakers" [routerLink]="Destinos">
+          <ion-icon name="pin"></ion-icon>
+          <ion-label>Destinos</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="about">
+          <ion-icon name="help-circle-outline"></ion-icon>
+          <ion-label>Ayuda</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+  </ion-app>
 </body>
 
 </html>
+
+<style>
+  ion-content ion-toolbar {
+    margin: 10px 0;
+  }
+</style>
