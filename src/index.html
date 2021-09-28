@@ -110,7 +110,18 @@
       <ion-tab tab="about" style="background-color: white;">
         <ion-header translucent>
           <ion-toolbar>
-            <ion-button color="danger" expand="block">Ayuda</ion-button>
+            <ion-tittle size="large">Ayuda</ion-tittle>
+            <ion-buttons slot="primary">
+              <ion-button (click)="clickedStar()">
+                <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+            <ion-item>
+              <ion-button color="danger">Busque su problema</ion-button>
+              <ion-select ok-text="Okay" cancel-text="Cancelar">
+                <ion-select-option value="dos">conctactar con desarrollador</ion-select-option>
+              </ion-select>
+            </ion-item>
           </ion-toolbar>
         </ion-header>
       </ion-tab>
